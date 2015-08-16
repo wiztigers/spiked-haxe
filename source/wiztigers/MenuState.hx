@@ -40,11 +40,10 @@ class MenuState extends flixel.FlxState
 
 	private function onPlay():Void
 	{
-		_title.text = "You pressed play!";
-/*		FlxG.camera.fade(FlxColor.BLACK,.33, false, function() {
+		FlxG.camera.fade(flixel.util.FlxColor.BLACK,.33, false, function() {
 			FlxG.switchState(new PlayState());
 		});
-*/	}
+	}
 
 	private function onOptions():Void
 	{
