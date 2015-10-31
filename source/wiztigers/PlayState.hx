@@ -11,6 +11,7 @@ class PlayState extends flixel.FlxState
 {
 	private var level:FlxTilemapExt;
 	private var player:FlxSprite;
+	private var enemy:FlxSprite;
 
 	override public function create(): Void {
 		level = new FlxTilemapExt();
@@ -37,6 +38,12 @@ class PlayState extends flixel.FlxState
 		this.player = createPlayer();
 		add(this.player);
 
+		this.enemy = createPlayer();
+		this.enemy.makeGraphic(8, 22, flixel.util.FlxColor.RED);
+		this.enemy.x = 110;
+		this.enemy.y = 300;
+		add(this.enemy);
+
 		FlxG.cameras.bgColor = 0xff050509;
 		// follow the player
 		//FlxG.camera.setScrollBoundsRect(0, 0, 970, 500, true);
@@ -48,7 +55,7 @@ class PlayState extends flixel.FlxState
 	private function createPlayer() : FlxSprite {
 		// player as a box
 		var player:FlxSprite = new FlxSprite(70);
-		player.makeGraphic(8, 10, flixel.util.FlxColor.RED);
+		player.makeGraphic(8, 10, flixel.util.FlxColor.BLUE);
 
 		// if it's a platformer, Y should be high, like 200.
 		// otherwise, set them to something like 80.
@@ -83,5 +90,7 @@ class PlayState extends flixel.FlxState
 		super.update();
 
 		FlxG.collide(this.level, this.player);
+		FlxG.collide(this.level, this.enemy);
+		FlxG.collide(this.player, this.enemy);
 	}
 }
