@@ -7,8 +7,7 @@ import flixel.addons.tile.FlxTilemapExt;
 //import flixel.graphics.frames.FlxTileFrames;
 import openfl.Assets;
 
-class PlayState extends flixel.FlxState
-{
+class PlayState extends flixel.FlxState {
 	private var level:FlxTilemapExt;
 	private var player:FlxSprite;
 	private var enemy:FlxSprite;
